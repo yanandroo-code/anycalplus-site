@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AnyCal+</title>
-<meta name="description" content="A flexible calendar component for Salesforce Lightning — show related records on any object as calendar events.">
+<meta name="description" content="A flexible calendar component for Salesforce Lightning. Show related records on any object as calendar events.">
 <link rel="icon" type="image/svg+xml" href="brand/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="brand/png/icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="brand/png/icon-180.png">
@@ -176,9 +176,8 @@ h1, h2, h3 { text-wrap: balance; letter-spacing: -0.015em; line-height: 1.15; }
 @media (max-width: 720px) { .lb-btn { width: 40px; height: 40px; top: auto; bottom: 56px; transform: none; } }
 
 /* Steps */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; counter-reset: step; }
-.step { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 14px; padding: 26px 24px; counter-increment: step; }
-.step::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 13px; color: var(--accent); display: block; margin-bottom: 12px; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+.step { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 14px; padding: 26px 24px; }
 .step h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 6px; }
 .step p { font-size: .9rem; color: var(--fg-muted); }
 
@@ -250,7 +249,7 @@ footer a:hover { color: var(--accent); }
     <div class="hero-grid">
       <div>
         <h1>Calendars for <span>every object</span></h1>
-        <p>AnyCal+ turns related records into calendar events on any Salesforce record page. Point it at an object, map a few fields, and your team has a calendar — no code.</p>
+        <p>AnyCal+ turns related records into calendar events on any Salesforce record page. Point it at an object, map a few fields, and your team has a calendar. No code needed.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://appexchange.salesforce.com" target="_blank" rel="noopener">Install from AppExchange</a>
           <a class="btn btn-secondary" href="#gallery">See it in action</a>
@@ -274,7 +273,7 @@ footer a:hover { color: var(--accent); }
   <div class="wrap">
     <div class="eyebrow">Features</div>
     <h2>Everything you need in a record calendar</h2>
-    <p class="lead">A native Lightning Web Component — no iframes, no external services, no data leaving your org.</p>
+    <p class="lead">A native Lightning Web Component with no iframes, no external services and no data leaving your org.</p>
     <div class="features-grid">
       <div class="feature"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3>Month, Week, Day &amp; Agenda</h3><p>Four views out of the box. Switch instantly with keyboard-accessible tabs.</p></div>
       <div class="feature"><div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Any object, any relationship</h3><p>Standard or custom objects. Map any lookup, date and display field from a point-and-click modal.</p></div>
@@ -301,7 +300,6 @@ footer a:hover { color: var(--accent); }
       </div>
       <figcaption class="stage-caption">
         <div><strong id="stageTitle"></strong><p id="stageDesc"></p></div>
-        <span class="hint">← → to browse · click to zoom</span>
       </figcaption>
     </figure>
 
@@ -325,16 +323,16 @@ footer a:hover { color: var(--accent); }
     <h2>Up and running in minutes</h2>
     <p class="lead">Three steps from install to a working calendar on any record page.</p>
     <div class="steps">
-      <div class="step"><h3>Install the package</h3><p>Install AnyCal+ from the AppExchange and assign the AnyCal+ Admin permission set to your calendar administrators.</p></div>
-      <div class="step"><h3>Add the component</h3><p>Open any record page in Lightning App Builder and drag AnyCal+ onto the layout.</p></div>
-      <div class="step"><h3>Configure &amp; go</h3><p>Click Configure Calendar, map child objects, date fields and display names. Save — the calendar is live for everyone on that page.</p></div>
+      <div class="step"><h3>1. Install the package</h3><p>Install AnyCal+ from the AppExchange and assign the AnyCal+ Admin permission set to your calendar administrators.</p></div>
+      <div class="step"><h3>2. Add the component</h3><p>Open any record page in Lightning App Builder and drag AnyCal+ onto the layout.</p></div>
+      <div class="step"><h3>3. Configure and go</h3><p>Click Configure Calendar, map child objects, date fields and display names. Save, and the calendar is live for everyone on that page.</p></div>
     </div>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap">
-    <img src="brand/banner-appexchange-1200x300.png" width="1200" height="300" alt="AnyCal+ — Calendars for every object. Otto, Pim and Penny carry the AnyCal+ icon toward a wall calendar" loading="lazy">
+    <img src="brand/banner-appexchange-1200x300.png" width="1200" height="300" alt="AnyCal+, Calendars for every object. Otto, Pim and Penny carry the AnyCal+ icon toward a wall calendar" loading="lazy">
   </div>
 </section>
 
@@ -366,7 +364,6 @@ footer a:hover { color: var(--accent); }
         <img class="contact-art" src="brand/png/icon-512.png" alt="" width="120" height="120">
         <h2>Get in touch</h2>
         <p>Need more calendar configurations, have a question, or want to request a feature? Send a message and we'll reply within one business day.</p>
-        <p class="helper">Your message goes straight to us — nothing is posted publicly.</p>
       </div>
       <div>
         <form id="contactForm" class="form" novalidate>
@@ -378,7 +375,7 @@ footer a:hover { color: var(--accent); }
             <div class="field"><label for="cf-company">Company / Org Name <span class="req">*</span></label><input type="text" id="cf-company" name="entry.564826811" required></div>
             <div class="field"><label for="cf-type">Request Type <span class="req">*</span></label>
               <select id="cf-type" name="entry.612991989" required>
-                <option value="" disabled selected>Select…</option>
+                <option value="" disabled selected>Select</option>
                 <option>Upgrade to Pro (limit increase)</option>
                 <option>Consulting Services</option>
                 <option>General Question</option>
@@ -387,7 +384,7 @@ footer a:hover { color: var(--accent); }
               </select>
             </div>
           </div>
-          <div class="field"><label for="cf-orgid">Salesforce Org ID</label><input type="text" id="cf-orgid" name="entry.1915657442" placeholder="00D…"><span class="helper">Found in Setup → Company Information</span></div>
+          <div class="field"><label for="cf-orgid">Salesforce Org ID</label><input type="text" id="cf-orgid" name="entry.1915657442" placeholder="00D"><span class="helper">Found under Setup, Company Information</span></div>
           <div class="field"><label for="cf-message">Message <span class="req">*</span></label><textarea id="cf-message" name="entry.1088586860" required></textarea></div>
           <div><button type="submit" class="btn btn-primary" id="cf-submit">Send Message</button></div>
         </form>
@@ -410,7 +407,7 @@ footer a:hover { color: var(--accent); }
     { src: 'screenshots/month-view.png',          title: 'Month view',         url: '/lightning/r/TimeSheet/view', desc: 'A full month of entries on the record page, with the standard Activity panel alongside. Today is highlighted; overflow days scroll.' },
     { src: 'screenshots/week-view.png',           title: 'Week view',          url: '/lightning/r/TimeSheet/view', desc: 'Seven-day time grid. Events are sized by duration and keep their titles readable even when stacked.' },
     { src: 'screenshots/day-view.png',            title: 'Day view',           url: '/lightning/r/TimeSheet/view', desc: 'One day, hour by hour. Ideal for service resources and anyone working a packed schedule.' },
-    { src: 'screenshots/agenda-view.png',         title: 'Agenda view',        url: '/lightning/r/TimeSheet/view', desc: 'A clean list grouped by day with times and object names — the fastest way to scan what is coming up.' },
+    { src: 'screenshots/agenda-view.png',         title: 'Agenda view',        url: '/lightning/r/TimeSheet/view', desc: 'A clean list grouped by day with times and object names. The fastest way to scan what is coming up.' },
     { src: 'screenshots/event-detail.png',        title: 'Event details',      url: '/lightning/r/TimeSheet/view', desc: 'Click any event for its fields in a modal, then open the record or edit it in place.' },
     { src: 'screenshots/new-record-selector.png', title: 'Record type picker', url: '/lightning/r/TimeSheet/view', desc: 'When a calendar shows more than one object, + New asks which kind of record to create.' },
     { src: 'screenshots/new-record-form.png',     title: 'Create a record',    url: '/lightning/r/TimeSheet/view', desc: 'A native create form, pre-linked to the parent record, with dates and times filled from the slot you clicked.' }
@@ -436,7 +433,7 @@ footer a:hover { color: var(--accent); }
   show(0);
 
   var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
-  function openLb() { lbImg.src = shots[current].src; lbImg.alt = shots[current].title; lbCap.textContent = shots[current].title + ' — ' + shots[current].desc; lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function openLb() { lbImg.src = shots[current].src; lbImg.alt = shots[current].title; lbCap.textContent = shots[current].title + '. ' + shots[current].desc; lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
   function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
   function step(d) { show(current + d); if (lb.classList.contains('open')) openLb(); }
   document.getElementById('stage').onclick = openLb;
@@ -458,7 +455,7 @@ footer a:hover { color: var(--accent); }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
       email.setCustomValidity('Please enter a valid email address.'); form.reportValidity(); email.setCustomValidity(''); return;
     }
-    btn.textContent = 'Sending…'; btn.disabled = true;
+    btn.textContent = 'Sending'; btn.disabled = true;
     var done = function () { form.hidden = true; document.getElementById('formSuccess').hidden = false; };
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSerWWOh-6B75PiFq3dk0nr5CnzYcuZz3qZv0VWHx1_lAnyi7Q/formResponse', { method: 'POST', body: new FormData(form), mode: 'no-cors' }).then(done).catch(done);
   });
