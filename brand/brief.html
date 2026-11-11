@@ -161,12 +161,17 @@ figcaption { font-size: 12px; color: var(--fg-muted); margin-top: 6px; font-fami
 
 <h2 id="style">5. Illustration style</h2>
 <ul>
-  <li><b>Flat vector, no outlines.</b> Shapes meet edge to edge; separation comes from color contrast and the shadow tone.</li>
-  <li><b>Light from top-left.</b> One soft shadow tone per color; no gradients on characters or props (the gradient belongs to the icon tile only).</li>
+  <li><b>Soft flat illustration, no outlines.</b> Rounded shapes that meet edge to edge; separation comes from color contrast. Gentle tonal shading on fur and props is fine (see the reference banner below), hard black outlines are not.</li>
+  <li><b>Light from top-left.</b> One shadow tone per color plus a soft ground shadow under each character; no gradients on characters or props (the gradient belongs to the icon tile only).</li>
+  <li><b>Crop-safe.</b> Plain uniform background <code>#F8FAFD</code> with no gradient or vignette, and nothing touching the image edges. Image models output fixed ratios, so we extend the canvas to the final size afterwards; a clean background makes that invisible.</li>
   <li><b>Environment:</b> a bright modern workspace built from Paper and Mist, with Brand Blue furniture accents. Calendar motifs everywhere: a big wall calendar grid, sticky notes, a planner, a clock. Plants allowed.</li>
   <li><b>Composition:</b> plenty of negative space, characters grouped around the icon tile as the focal object. Keep edges clean so images crop well.</li>
   <li><b>No text</b> inside images. No photographic textures, no 3D rendering, no glow effects.</li>
 </ul>
+<figure>
+  <img src="banner-master.png" alt="Reference banner: Otto carrying the AnyCal+ tile, Pim cheering, Penny with a clipboard in front of a wall calendar">
+  <figcaption>Reference look (Scene A, first generation). Match this style for every asset. Known fix pending: the plus on the tile must be the tile blue inside the calendar body, as in icon.svg.</figcaption>
+</figure>
 
 <h2 id="legal">6. Do and don't</h2>
 <div class="rules">
@@ -221,11 +226,11 @@ figcaption { font-size: 12px; color: var(--fg-muted); margin-top: 6px; font-fami
 <p>Penny sitting cross-legged looking at a blank calendar page, relaxed, a cup beside her. Light, friendly, no sadness: “nothing scheduled yet.”</p>
 
 <h2 id="prompts">9. Prompts for image models</h2>
-<p>Paste the base prompt first, then one scene prompt. Generate at the largest size available, then crop to spec. Results will still need a vector pass by a designer for the final SVG masters; use the AI output as a reference or for raster-only uses.</p>
+<p>Workflow that keeps generations to a minimum: attach <code>banner-master.png</code> (style reference) and <code>png/icon-1024.png</code> (the exact tile) to the chat, paste the base prompt, the characters prompt and one scene prompt together, and generate in landscape. Don't ask the model for an exact pixel size; keep the background uniform and the edges clear, and we extend the canvas to the final ratio afterwards. If a result is right except for one detail, use the model's edit mode on that image rather than regenerating.</p>
 
 <div class="prompt">
   <div class="prompt-head"><h3>Base style prompt</h3><button class="copy" type="button" data-copy="p-base">Copy</button></div>
-  <pre id="p-base">Flat vector illustration, no outlines, clean geometric shapes, soft single-tone shadows with light from the top left, limited palette: brand blue #0B6FCC, sky blue #2E9BF0, amber #F2A33A, ink #1B2332, slate #5A6577, mist #F0F3F7, paper #FAFBFC. Bright modern workspace with calendar motifs (wall calendar grid, sticky notes, planner, clock, a plant). Friendly cartoon animal characters with large round heads (about 40% of height), small rounded bodies, simple dot eyes with one highlight, small mouths. No text, no gradients on characters, no 3D, no glow, no photographic texture, white or paper background.</pre>
+  <pre id="p-base">Soft flat illustration, no outlines, clean rounded shapes, gentle tonal shading with light from the top left, matching the attached reference banner. Plain uniform background #F8FAFD with no gradient or vignette; nothing touches the image edges. Limited palette: brand blue #0B6FCC, sky blue #2E9BF0, amber #F2A33A, ink #1B2332, slate #5A6577, mist #F0F3F7, paper #FAFBFC. Bright modern workspace with calendar motifs (wall calendar grid, sticky notes, planner, clock, a plant). Friendly cartoon animal characters with large round heads (about 40% of height), small rounded bodies, simple dot eyes with one highlight, small mouths. No text, no gradients on characters, no 3D, no glow, no photographic texture, white or paper background.</pre>
 </div>
 
 <div class="prompt">
@@ -251,6 +256,11 @@ figcaption { font-size: 12px; color: var(--fg-muted); margin-top: 6px; font-fami
 <div class="prompt">
   <div class="prompt-head"><h3>Scene D — Empty state</h3><button class="copy" type="button" data-copy="p-d">Copy</button></div>
   <pre id="p-d">4:3 spot illustration. Penny the penguin sits cross-legged on the floor looking at a blank wall calendar page, relaxed and content, a cup of tea beside her. Minimal background, mostly paper white, small sticky note on the wall. Mood: nothing scheduled yet, calm and friendly.</pre>
+</div>
+
+<div class="prompt">
+  <div class="prompt-head"><h3>Fix the tile glyph (edit an existing image)</h3><button class="copy" type="button" data-copy="p-fix">Copy</button></div>
+  <pre id="p-fix">Edit this image. Keep everything exactly as it is: the characters, poses, expressions, colors, background and composition. Only change the app icon tile the otter is holding so its glyph matches the attached icon image exactly: a white calendar shape with two small white binder rings at the top, a thin horizontal band of the tile blue across the top of the calendar, and a bold plus sign in the same blue as the tile (#0B6FCC) inside the white calendar body. The plus must not look like a medical or first-aid cross: no red, no white cross on a colored square. Keep the tile's rounded corners and blue gradient (#0B6FCC to #2E9BF0).</pre>
 </div>
 
 <div class="prompt">
