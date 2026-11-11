@@ -372,14 +372,92 @@ body {
   margin-right: auto;
 }
 
-.form-placeholder {
-  background: var(--surface-raised);
-  border: 2px dashed var(--surface-border);
+.contact-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.form-group label .req {
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 10px 12px;
+  border: 1px solid var(--surface-border);
   border-radius: 8px;
-  padding: 48px 24px;
+  background: var(--bg);
+  color: var(--fg);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group .helper {
+  font-size: 0.78rem;
   color: var(--fg-muted);
-  font-family: var(--font-mono);
-  font-size: 14px;
+}
+
+.form-submit {
+  text-align: center;
+  padding-top: 4px;
+}
+
+.form-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.form-success h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-success p {
+  color: var(--fg-muted);
+  margin-bottom: 0;
 }
 
 /* ---- Footer ---- */
@@ -557,17 +635,74 @@ body {
       <h2>Get in touch</h2>
       <p>Need more calendar configurations, have a question, or want to request a feature? Send us a message and we'll get back to you within one business day.</p>
 
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSerWWOh-6B75PiFq3dk0nr5CnzYcuZz3qZv0VWHx1_lAnyi7Q/viewform?embedded=true"
-        width="100%"
-        height="900"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        style="border: none; border-radius: 8px;"
-        title="Contact AnyCal+"
-        loading="lazy"
-      >Loading…</iframe>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Name <span class="req">*</span></label>
+            <input type="text" id="cf-name" name="entry.531518552" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email <span class="req">*</span></label>
+            <input type="email" id="cf-email" name="entry.103360093" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-company">Company / Org Name <span class="req">*</span></label>
+            <input type="text" id="cf-company" name="entry.564826811" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-type">Request Type <span class="req">*</span></label>
+            <select id="cf-type" name="entry.612991989" required>
+              <option value="" disabled selected>Select…</option>
+              <option value="Upgrade to Pro (limit increase)">Upgrade to Pro (limit increase)</option>
+              <option value="Consulting Services">Consulting Services</option>
+              <option value="General Question">General Question</option>
+              <option value="Bug Report">Bug Report</option>
+              <option value="Feature Request">Feature Request</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-orgid">Salesforce Org ID</label>
+          <input type="text" id="cf-orgid" name="entry.1915657442" placeholder="00D…">
+          <span class="helper">Found in Setup → Company Information</span>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message <span class="req">*</span></label>
+          <textarea id="cf-message" name="entry.1088586860" required></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary" id="cf-submit">Send Message</button>
+        </div>
+      </form>
+      <div id="formSuccess" class="form-success" hidden>
+        <h3>Message sent</h3>
+        <p>Thanks for reaching out. We'll get back to you within one business day.</p>
+      </div>
+
+      <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          var form = this;
+          var btn = document.getElementById('cf-submit');
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          btn.textContent = 'Sending…';
+          btn.disabled = true;
+          var data = new FormData(form);
+          fetch('https://docs.google.com/forms/d/e/1FAIpQLSerWWOh-6B75PiFq3dk0nr5CnzYcuZz3qZv0VWHx1_lAnyi7Q/formResponse', {
+            method: 'POST',
+            body: data,
+            mode: 'no-cors'
+          }).then(function() {
+            form.hidden = true;
+            document.getElementById('formSuccess').hidden = false;
+          }).catch(function() {
+            form.hidden = true;
+            document.getElementById('formSuccess').hidden = false;
+          });
+        });
+      </script>
     </div>
   </section>
 
