@@ -689,6 +689,15 @@ body {
           if (!form.checkValidity()) { form.reportValidity(); return; }
           btn.textContent = 'Sending…';
           btn.disabled = true;
+          var email = document.getElementById('cf-email');
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
+            email.setCustomValidity('Please enter a valid email address.');
+            form.reportValidity();
+            email.setCustomValidity('');
+            btn.textContent = 'Send Message';
+            btn.disabled = false;
+            return;
+          }
           var data = new FormData(form);
           fetch('https://docs.google.com/forms/d/e/1FAIpQLSerWWOh-6B75PiFq3dk0nr5CnzYcuZz3qZv0VWHx1_lAnyi7Q/formResponse', {
             method: 'POST',
