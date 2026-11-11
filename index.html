@@ -334,6 +334,89 @@ body {
   justify-content: center;
 }
 
+/* ---- Screenshot Gallery ---- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.gallery-hero {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.gallery-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .gallery-row { grid-template-columns: 1fr; }
+}
+
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-caption {
+  padding: 10px 14px;
+  background: var(--surface);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-align: center;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
 /* ---- How It Works ---- */
 .steps {
   display: grid;
@@ -598,6 +681,65 @@ body {
     </div>
   </section>
 
+  <!-- Screenshots -->
+  <section class="section" id="screenshots">
+    <div class="section-label">See it in action</div>
+    <h2>A calendar that fits right into Salesforce</h2>
+    <p class="lead">AnyCal+ looks and feels like a native part of the platform — because it is.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-hero gallery-item" onclick="openLightbox(this)">
+        <img src="screenshots/month-view.png" width="2880" height="1484" alt="Month view showing a full calendar of timesheet entries on a Salesforce record page" loading="lazy">
+      </div>
+      <div class="gallery-row">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="screenshots/week-view.png" width="2880" height="1534" alt="Week view showing daily time blocks across a full work week" loading="lazy">
+          <div class="gallery-caption">Week View</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="screenshots/day-view.png" width="2880" height="1534" alt="Day view showing a vertical timeline with two time blocks" loading="lazy">
+          <div class="gallery-caption">Day View</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="screenshots/agenda-view.png" width="2880" height="1534" alt="Agenda view showing entries grouped by day in a list format" loading="lazy">
+          <div class="gallery-caption">Agenda View</div>
+        </div>
+      </div>
+      <div class="gallery-row">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="screenshots/event-detail.png" width="2880" height="1624" alt="Event detail modal showing timesheet entry fields with Open Record and Edit buttons" loading="lazy">
+          <div class="gallery-caption">Event Details</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="screenshots/new-record-form.png" width="2880" height="1534" alt="New record creation form with all fields pre-populated from the calendar" loading="lazy">
+          <div class="gallery-caption">Create Records</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="screenshots/new-record-selector.png" width="2880" height="1436" alt="Record type selector modal showing Time Sheet Entry and Event options" loading="lazy">
+          <div class="gallery-caption">Record Type Picker</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(el) {
+      var src = el.querySelector('img').src;
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
   <!-- How It Works -->
   <section class="section" id="setup">
     <div class="section-label">Setup</div>
@@ -752,6 +894,7 @@ body {
     <p>&copy; 2026 AnyCal+. All rights reserved.</p>
     <ul class="footer-links">
       <li><a href="#features">Features</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
       <li><a href="#pricing">Editions</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
