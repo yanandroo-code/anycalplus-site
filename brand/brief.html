@@ -210,6 +210,7 @@ figcaption { font-size: 12px; color: var(--fg-muted); margin-top: 6px; font-fami
     <tr><td class="num">7</td><td>Social / OG image</td><td class="num">1200 × 630</td><td>Link previews</td><td>Scene C</td></tr>
     <tr><td class="num">8</td><td>Site hero</td><td class="num">1600 × 900</td><td>Support site header</td><td>Scene B</td></tr>
     <tr><td class="num">9</td><td>Empty-state spot</td><td class="num">800 × 600</td><td>In-app “no events” state</td><td>Scene D</td></tr>
+    <tr><td class="num">10</td><td>Limit-reached spot</td><td class="num">800 × 600</td><td>In-app configuration limit screen, Editions section</td><td>Scene E</td></tr>
     <tr><td class="num">10</td><td>Character sheet</td><td class="num">3000 × 2000</td><td>Brand kit, future products</td><td>Front, ¾, side; 3 expressions; 3 poses each</td></tr>
   </tbody>
 </table>
@@ -224,6 +225,8 @@ figcaption { font-size: 12px; color: var(--fg-muted); margin-top: 6px; font-fami
 <p>Otto alone, presenting the icon tile with an open palm, half-turned to the viewer, confident smile. Simple Paper background with a faint calendar grid. Room on the right for a headline.</p>
 <h3>Scene D — Empty state (4:3)</h3>
 <p>Penny sitting cross-legged looking at a blank calendar page, relaxed, a cup beside her. Light, friendly, no sadness: “nothing scheduled yet.”</p>
+<h3>Scene E — Limit reached (4:3)</h3>
+<p>Two wall calendars. The left one already has the tile fitted; Pim holds a second tile in front of the right one, which has a small amber padlock. Otto gives a thumbs up. Upbeat: “easy, we can unlock that.” Used on the Free edition limit screen and the Editions section.</p>
 
 <h2 id="prompts">9. Prompts for image models</h2>
 <p>Workflow that keeps generations to a minimum: attach <code>banner-master.png</code> (style reference) and <code>png/icon-1024.png</code> (the exact tile) to the chat, paste the base prompt, the characters prompt and one scene prompt together, and generate in landscape. Don't ask the model for an exact pixel size; keep the background uniform and the edges clear, and we extend the canvas to the final ratio afterwards. If a result is right except for one detail, use the model's edit mode on that image rather than regenerating.</p>
@@ -256,6 +259,11 @@ figcaption { font-size: 12px; color: var(--fg-muted); margin-top: 6px; font-fami
 <div class="prompt">
   <div class="prompt-head"><h3>Scene D — Empty state</h3><button class="copy" type="button" data-copy="p-d">Copy</button></div>
   <pre id="p-d">4:3 spot illustration. Penny the penguin sits cross-legged on the floor looking at a blank wall calendar page, relaxed and content, a cup of tea beside her. Minimal background, mostly paper white, small sticky note on the wall. Mood: nothing scheduled yet, calm and friendly.</pre>
+</div>
+
+<div class="prompt">
+  <div class="prompt-head"><h3>Scene E — Limit reached</h3><button class="copy" type="button" data-copy="p-e">Copy</button></div>
+  <pre id="p-e">4:3 spot illustration. Two wall calendars side by side. The left calendar already has the app icon tile fitted into it. Pim the red panda stands in front of the right calendar holding a second app icon tile, looking up at it hopefully; the right calendar has a small amber #F2A33A padlock hanging on its corner. Otto the otter beside Pim gives a cheerful thumbs up, as if to say "easy, we can unlock that". Mood: upbeat and encouraging, not a refusal. Minimal background, mostly paper white, a plant on the floor.</pre>
 </div>
 
 <div class="prompt">
