@@ -80,6 +80,9 @@ code, kbd { font-family: var(--mono); font-size: .86em; background: var(--surfac
 .shot { margin: 18px 0 24px; }
 .shot img { border-radius: 12px; border: 1px solid var(--surface-border); box-shadow: var(--shadow); }
 .shot figcaption { font-size: .85rem; color: var(--fg-muted); margin-top: 8px; }
+.spot { margin: 8px 0 24px; max-width: 420px; }
+.spot img { border-radius: 12px; }
+.spot figcaption { font-size: .85rem; color: var(--fg-muted); margin-top: 8px; }
 table { width: 100%; border-collapse: collapse; font-size: .93rem; margin: 10px 0 20px; }
 th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--surface-border); }
 th { font-weight: 600; background: var(--surface-raised); }
@@ -256,6 +259,7 @@ footer a:hover { color: var(--accent); }
         <tr><td>No events in this period</td><td>Usually a date range or filter question. Check the Filter Condition, try Agenda view, and confirm the records' dates fall inside the visible range.</td></tr>
         <tr><td>Calendar is cut off or too tall</td><td>Set <strong>Component Height</strong> on the component in Lightning App Builder.</td></tr>
       </table></div>
+      <figure class="spot"><img src="brand/empty-state-800x600.webp" width="800" height="600" alt="Penny the penguin sitting calmly with a cup of tea in front of a blank wall calendar" loading="lazy"><figcaption>An empty calendar is not an error. If you expect events here, work through the row above.</figcaption></figure>
       <p>Still stuck? <a href="index.html#contact">Send us a message</a> with the object names involved and, if possible, a screenshot of the error. Include your org ID so we can look up your edition.</p>
       <div class="next">
         <a class="btn btn-primary" href="index.html#contact">Contact support</a>
