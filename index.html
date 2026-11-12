@@ -177,7 +177,8 @@ h1, h2, h3 { text-wrap: balance; letter-spacing: -0.015em; line-height: 1.15; }
 
 /* Steps */
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
-.step { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 14px; padding: 26px 24px; }
+.step { display: block; text-decoration: none; color: inherit; background: var(--surface); border: 1px solid var(--surface-border); border-radius: 14px; padding: 26px 24px; transition: border-color .15s, transform .15s; }
+.step:hover { border-color: var(--accent); transform: translateY(-2px); }
 .step h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 6px; }
 .step p { font-size: .9rem; color: var(--fg-muted); }
 
@@ -236,7 +237,7 @@ footer a:hover { color: var(--accent); }
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
       <li><a href="#gallery">Screenshots</a></li>
-      <li><a href="#setup">Setup</a></li>
+      <li><a href="setup.html">Setup guide</a></li>
       <li><a href="#pricing">Editions</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -321,12 +322,13 @@ footer a:hover { color: var(--accent); }
   <div class="wrap">
     <div class="eyebrow">Setup</div>
     <h2>Up and running in minutes</h2>
-    <p class="lead">Three steps from install to a working calendar on any record page.</p>
+    <p class="lead">Three steps from install to a working calendar on any record page. The <a href="setup.html">setup guide</a> walks through each one in detail.</p>
     <div class="steps">
-      <div class="step"><h3>1. Install the package</h3><p>Install AnyCal+ from the AppExchange and assign the AnyCal+ Admin permission set to your calendar administrators.</p></div>
-      <div class="step"><h3>2. Add the component</h3><p>Open any record page in Lightning App Builder and drag AnyCal+ onto the layout.</p></div>
-      <div class="step"><h3>3. Configure and go</h3><p>Click Configure Calendar, map child objects, date fields and display names. Save, and the calendar is live for everyone on that page.</p></div>
+      <a class="step" href="setup.html#install"><h3>1. Install the package</h3><p>Install AnyCal+ from the AppExchange and assign the AnyCal+ Admin permission set to your calendar administrators.</p></a>
+      <a class="step" href="setup.html#add"><h3>2. Add the component</h3><p>Open any record page in Lightning App Builder and drag AnyCal+ onto the layout.</p></a>
+      <a class="step" href="setup.html#configure"><h3>3. Configure and go</h3><p>Click Configure Calendar, map child objects, date fields and display names. Save, and the calendar is live for everyone on that page.</p></a>
     </div>
+    <p style="margin-top:28px"><a class="btn btn-secondary" href="setup.html">Read the full setup guide</a></p>
   </div>
 </section>
 
@@ -397,7 +399,7 @@ footer a:hover { color: var(--accent); }
 <footer>
   <div class="wrap">
     <p>&copy; 2026 AnyCal+. All rights reserved.</p>
-    <ul><li><a href="#features">Features</a></li><li><a href="#gallery">Screenshots</a></li><li><a href="#pricing">Editions</a></li><li><a href="#contact">Contact</a></li></ul>
+    <ul><li><a href="#features">Features</a></li><li><a href="#gallery">Screenshots</a></li><li><a href="setup.html">Setup guide</a></li><li><a href="#pricing">Editions</a></li><li><a href="#contact">Contact</a></li></ul>
   </div>
 </footer>
 
